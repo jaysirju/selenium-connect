@@ -18,6 +18,9 @@ class SeleniumConnect
     # SauceLabs
     attr_accessor :sauce_username, :sauce_api_key, :api_timeout
 
+    # Appium
+    attr_accessor :app, :newCommandTimeout, :autoAcceptAlerts, :keepKeyChains, :appium_version, :platformName, :platformVersion, :deviceName
+
     attr_reader :sauce_opts, :browser, :description, :os, :browser_version
 
     def initialize(opts = {})

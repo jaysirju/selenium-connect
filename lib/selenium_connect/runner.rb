@@ -6,6 +6,7 @@ require 'selenium_connect/runners/chrome'
 require 'selenium_connect/runners/phantomjs'
 require 'selenium_connect/runners/no_browser'
 require 'selenium_connect/runners/saucelabs'
+require 'selenium_connect/runners/appium'
 
 # selenium connect
 class SeleniumConnect
@@ -27,6 +28,8 @@ class SeleniumConnect
     def init_driver
       if config.host == 'saucelabs'
         Saucelabs.new(config).launch
+      elsif config.host == 'appium'
+        AppiumLib.new(config).launch
       else
         Selenium::WebDriver.for(
           :remote,
